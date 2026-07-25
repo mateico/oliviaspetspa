@@ -8,14 +8,14 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "/", label: "Inicio" },
-    { href: "/services", label: "Servicios" },
+    { href: "/services", label: "Sericios" },
     { href: "/gallery", label: "Galería" },
     { href: "/about", label: "Nosotros" },
     { href: "/contact", label: "Contacto" },
   ];
 
   return (
-    <nav className="bg-white border-b border-neutral-200 sticky top-0 z-50 flex justify-center">
+    <nav className="bg-background border-b border-neutral-200 sticky top-0 z-50 flex justify-center">
       <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

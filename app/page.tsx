@@ -11,7 +11,7 @@ export default function Home() {
               Pet Spa sobre ruedas
             </h1>
             <p className="text-xl text-neutral-100 mb-8">
-              Servicios de aseo premium para tus queridas mascotas. Llevamos la
+              Servicios de aseo preddmiuddra tus queridas mascotas. Llevamos la
               experiencia de spa a ti con nuestro servicio de peluquería móvil.
             </p>
             <Link
@@ -25,7 +25,7 @@ export default function Home() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-20 md:py-28 bg-white flex justify-center">
+      <section className="py-20 md:py-28 bg-background flex justify-center">
         <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-serif font-bold text-center mb-12">
             Our Services
