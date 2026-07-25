@@ -28,24 +28,23 @@ export default function Home() {
       <section className="py-20 md:py-28 bg-background flex justify-center">
         <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-serif font-bold text-center mb-12">
-            Our Services
+            Nuestros Servicios
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Full Grooming",
+                title: "Aseo Completo",
                 description:
-                  "Complete bath, haircut, nail trim, and ear cleaning.",
+                  "Baño completo, corte de cabello, corte de uñas y limpieza de oídos.",
               },
               {
-                title: "Specialty Treatments",
+                title: "Tratamientos Especiales",
                 description:
-                  "De-shedding, spa treatments, and hand stripping available.",
+                  "Tratamiento anti-caída, tratamientos de spa y deslanado disponibles.",
               },
               {
-                title: "Mobile Service",
-                description:
-                  "We come to you! Professional grooming at your doorstep.",
+                title: "Servicio Móvil",
+                description: "¡Vamos a ti! Aseo profesional en tu puerta.",
               },
             ].map((service, i) => (
               <div
@@ -64,7 +63,7 @@ export default function Home() {
               href="/services"
               className="text-primary hover:text-primaryDark font-semibold text-lg"
             >
-              View All Services →
+              Ver Todos los Servicios →
             </Link>
           </div>
         </div>

@@ -5,28 +5,29 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary-dark text-neutral-50 flex justify-center">
-      <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
+      <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Marca */}
           <div>
             <h3 className="font-serif text-xl font-bold text-white mb-2">
-              Olivia's Pet Spa
+              Spa de Mascotas de Olivia
             </h3>
             <p className="text-neutral-400 text-sm">
-              Professional mobile pet grooming for your beloved companions.
+              Aseo profesional de mascotas a domicilio para tus compañeros
+              queridos.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Enlaces Rápidos */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-white mb-4">Enlaces Rápidos</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   href="/"
                   className="text-neutral-400 hover:text-primary transition-colors"
                 >
-                  Home
+                  Inicio
                 </Link>
               </li>
               <li>
@@ -34,7 +35,7 @@ export default function Footer() {
                   href="/services"
                   className="text-neutral-400 hover:text-primary transition-colors"
                 >
-                  Services
+                  Servicios
                 </Link>
               </li>
               <li>
@@ -42,7 +43,7 @@ export default function Footer() {
                   href="/gallery"
                   className="text-neutral-400 hover:text-primary transition-colors"
                 >
-                  Gallery
+                  Galería
                 </Link>
               </li>
               <li>
@@ -50,52 +51,30 @@ export default function Footer() {
                   href="/about"
                   className="text-neutral-400 hover:text-primary transition-colors"
                 >
-                  About
+                  Acerca de
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Información de Contacto */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Contact</h4>
+            <h4 className="font-semibold text-white mb-4">Contacto</h4>
             <ul className="space-y-2 text-sm text-neutral-400">
-              <li>Phone: (555) 123-4567</li>
+              <li>Teléfono: (555) 123-4567</li>
               <li>Email: info@oliviaspetspa.com</li>
-              <li>Available 7 days a week</li>
+              <li>Disponible 7 días a la semana</li>
             </ul>
           </div>
 
-          {/* Hours */}
+          {/* Horarios */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Hours</h4>
+            <h4 className="font-semibold text-white mb-4">Horarios</h4>
             <ul className="space-y-2 text-sm text-neutral-400">
-              <li>Mon - Fri: 8am - 6pm</li>
-              <li>Sat - Sun: 9am - 5pm</li>
-              <li>Mobile service available</li>
+              <li>Lun - Vie: 8am - 6pm</li>
+              <li>Sáb - Dom: 9am - 5pm</li>
+              <li>Servicio móvil disponible</li>
             </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-neutral-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-neutral-400 text-sm">
-              © {currentYear} Olivia's Pet Spa. All rights reserved.
-            </p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <Link
-                href="#"
-                className="text-neutral-400 hover:text-primary transition-colors text-sm"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="#"
-                className="text-neutral-400 hover:text-primary transition-colors text-sm"
-              >
-                Terms of Service
-              </Link>
-            </div>
           </div>
         </div>
       </div>
