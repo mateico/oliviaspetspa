@@ -85,10 +85,10 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="block px-3 py-2 bg-primary text-white rounded transition-colors font-medium text-center"
+              className="block px-3 py-2 bg-accent text-black rounded transition-colors font-medium text-center"
               onClick={() => setIsOpen(false)}
             >
-              Book Now
+              Agendar Ahora
             </Link>
           </div>
         )}

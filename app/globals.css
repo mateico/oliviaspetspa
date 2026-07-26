@@ -3,7 +3,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: var(--color-pink-500);
+  --color-primary: var(--color-pink-600);
   --color-primary-light: var(--color-pink-300);
   --color-primary-dark: var(--color-pink-900);
 
