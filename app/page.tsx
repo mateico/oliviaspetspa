@@ -11,9 +11,8 @@ export default function Home() {
               Pet Spa sobre ruedas
             </h1>
             <p className="text-xl text-neutral-100 mb-8">
-              Servicios de ddssdddddddaseo preddmiuddra tus queridas mascotas.
-              Llevamos la experiencia de spa a ti con nuestro servicio de
-              peluquería móvil.
+              Servicios de aseo para tus queridas mascotas. Llevamos la
+              experiencia de spa a ti con nuestro servicio de peluquería móvil.
             </p>
             <Link
               href="/contact"
