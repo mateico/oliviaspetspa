@@ -5,7 +5,7 @@ const PLANES = [
     tamano: "Pequeño",
     peso: "Hasta 10 kg",
     emoji: "🐕",
-    precio: "$45.000",
+    precio: "$2.000",
     destacado: false,
     incluye: [
       "Baño con productos hipoalergénicos",
@@ -18,7 +18,7 @@ const PLANES = [
     tamano: "Mediano",
     peso: "De 10 a 25 kg",
     emoji: "🐩",
-    precio: "$60.000",
+    precio: "$3.000",
     destacado: true,
     incluye: [
       "Baño con productos hipoalergénicos",
@@ -32,7 +32,7 @@ const PLANES = [
     tamano: "Grande",
     peso: "Más de 25 kg",
     emoji: "🐕‍🦺",
-    precio: "$80.000",
+    precio: "$4.000",
     destacado: false,
     incluye: [
       "Baño con productos hipoalergénicos",

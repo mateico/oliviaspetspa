@@ -5,8 +5,8 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <section className="bg-primary text-white py-20 md:py-32 flex justify-center">
-        <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
+        <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 ">
+          <div className="max-w-2xl ">
             <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4">
               Pet Spa sobre ruedas
             </h1>
@@ -20,13 +20,13 @@ export default function Home() {
             >
               Agendar
             </Link>
-          </div>
+          </div>{" "}
         </div>
       </section>
 
       {/* Services Preview */}
       <section className="py-20 md:py-28 bg-background flex justify-center">
-        <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 ">
           <h2 className="text-4xl font-serif font-bold text-center mb-12">
             Nuestros Servicios
           </h2>
