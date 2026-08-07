@@ -32,7 +32,7 @@ export default function PhotoUploadForm({
       return;
     }
 
-    if (uploadType === "una-imagen") {
+    /* if (uploadType === "una-imagen") {
       if (!imageFile) {
         setError("Please select image");
         return;
@@ -42,12 +42,13 @@ export default function PhotoUploadForm({
         setError("Please select both before and after images");
         return;
       }
-    }
+    } */
 
     setLoading(true);
 
     try {
       if (uploadType === "una-imagen") {
+        if (!imageFile) throw new Error("Please select image");
         // Upload single image
         const formData = new FormData();
         formData.append("file", imageFile);
@@ -94,6 +95,9 @@ export default function PhotoUploadForm({
           body: JSON.stringify({ dogId }),
         }).catch((err) => console.error("Polaroid generation failed:", err));
       } else {
+        if (!antesFile || !despuesFile) {
+          throw new Error("Please select both and after images");
+        }
         // Upload before/after images
         const formData = new FormData();
         formData.append("beforeFile", antesFile);

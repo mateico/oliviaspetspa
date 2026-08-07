@@ -10,11 +10,10 @@ export default function Footer() {
           {/* Marca */}
           <div>
             <h3 className="font-serif text-xl font-bold text-white mb-2">
-              Spa de Mascotas de Olivia
+              Olivia&apos;s Pet Spa
             </h3>
             <p className="text-neutral-400 text-sm">
-              Aseo profesional de mascotas a domicilio para tus compañeros
-              queridos.
+              La experiencia de un spa para tu mascota, en la puerta de tu casa.
             </p>
           </div>
 
@@ -61,9 +60,8 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-4">Contacto</h4>
             <ul className="space-y-2 text-sm text-neutral-400">
-              <li>Teléfono: (555) 123-4567</li>
-              <li>Email: info@oliviaspetspa.com</li>
-              <li>Disponible 7 días a la semana</li>
+              <li>📞 Teléfono: 095 493 845</li>
+              <li>✉️ Correo electrónico: oliviapetspa@gmail.com</li>
             </ul>
           </div>
 
@@ -71,9 +69,8 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-4">Horarios</h4>
             <ul className="space-y-2 text-sm text-neutral-400">
-              <li>Lun - Vie: 8am - 6pm</li>
-              <li>Sáb - Dom: 9am - 5pm</li>
-              <li>Servicio móvil disponible</li>
+              <li>Lunes a sábado: 9:00 a 20:00 hs</li>
+              <li>Domingos: Cerrado</li>
             </ul>
           </div>
         </div>

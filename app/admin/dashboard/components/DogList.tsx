@@ -2,18 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-
-interface Dog {
-  id: number;
-  title: string;
-  image_url: string;
-  polaroid_url?: string;
-  large_image_url?: string;
-  large_before_image_url?: string;
-  large_after_image_url?: string;
-  photo_type: "una-imagen" | "antes-despues";
-  created_at: string;
-}
+import { Dog } from "@/lib/db";
 
 interface DogListProps {
   dogs: Dog[];

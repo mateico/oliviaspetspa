@@ -32,6 +32,24 @@ export async function getDogs() {
   return result.rows;
 }
 
+export interface Dog {
+  id: number;
+  title: string;
+  photo_type: "una-imagen" | "antes-despues";
+  photo_title?: string | null;
+  image_url: string;
+  before_image_url?: string | null;
+  after_image_url?: string | null;
+  large_image_url?: string | null;
+  large_before_image_url?: string | null;
+  large_after_image_url?: string | null;
+  polaroid_url?: string | null;
+  polaroid_generated_at?: string | null;
+  client_email?: string | null;
+  client_whatsapp?: string | null;
+  created_at: string;
+}
+
 export interface AddDogInput {
   title: string;
   photoType: "una-imagen" | "antes-despues";

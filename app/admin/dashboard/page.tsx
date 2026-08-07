@@ -4,13 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import PhotoUploadForm from "./components/PhotoUploadForm";
 import DogList from "./components/DogList";
-
-interface Dog {
-  id: number;
-  title: string;
-  image_url: string;
-  created_at: string;
-}
+import { Dog } from "@/lib/db";
 
 export default function DashboardPage() {
   const [dogs, setDogs] = useState<Dog[]>([]);
