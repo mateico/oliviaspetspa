@@ -284,7 +284,7 @@ export default function Contact() {
                 id="campo-telefono"
                 type="tel"
                 autoComplete="tel"
-                placeholder="+54 9 11 0000 0000"
+                placeholder="099 123 456"
                 value={valores.telefono}
                 onChange={(e) => setCampo("telefono", e.target.value)}
                 aria-invalid={!!errores.telefono}
