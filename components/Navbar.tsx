@@ -15,7 +15,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-background border-b border-neutral-200 sticky top-0 z-50 flex justify-center">
+    <nav className="bg-primary-light border-b border-neutral-200 sticky top-0 z-50 flex justify-center">
       <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -42,7 +42,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Link
               href="/contact"
-              className="bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-lg transition-colors font-medium"
+              className="bg-accent hover:bg-accent-dark text-neutral-900 px-6 py-2 rounded-lg font-semibold transition-colors"
             >
               Agendar
             </Link>

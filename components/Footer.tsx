@@ -12,7 +12,7 @@ export default function Footer() {
             <h3 className="font-serif text-xl font-bold text-white mb-2">
               Olivia&apos;s Pet Spa
             </h3>
-            <p className="text-neutral-400 text-sm">
+            <p className="text-neutral-200 text-sm">
               La experiencia de un spa para tu mascota, en la puerta de tu casa.
             </p>
           </div>
@@ -24,7 +24,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-neutral-400 hover:text-primary transition-colors"
+                  className="text-neutral-200 hover:text-primary transition-colors"
                 >
                   Inicio
                 </Link>
@@ -32,7 +32,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="text-neutral-400 hover:text-primary transition-colors"
+                  className="text-neutral-200 hover:text-primary transition-colors"
                 >
                   Servicios
                 </Link>
@@ -40,7 +40,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/gallery"
-                  className="text-neutral-400 hover:text-primary transition-colors"
+                  className="2 hover:text-primary transition-colors"
                 >
                   Galería
                 </Link>
@@ -48,7 +48,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-neutral-400 hover:text-primary transition-colors"
+                  className="text-neutral-200 hover:text-primary transition-colors"
                 >
                   Acerca de
                 </Link>
@@ -59,7 +59,7 @@ export default function Footer() {
           {/* Información de Contacto */}
           <div>
             <h4 className="font-semibold text-white mb-4">Contacto</h4>
-            <ul className="space-y-2 text-sm text-neutral-400">
+            <ul className="space-y-2 text-sm text-neutral-200">
               <li>📞 Teléfono: 095 493 845</li>
               <li>✉️ Correo electrónico: oliviapetspa@gmail.com</li>
             </ul>
@@ -68,7 +68,7 @@ export default function Footer() {
           {/* Horarios */}
           <div>
             <h4 className="font-semibold text-white mb-4">Horarios</h4>
-            <ul className="space-y-2 text-sm text-neutral-400">
+            <ul className="space-y-2 text-sm text-neutral-200">
               <li>Lunes a sábado: 9:00 a 20:00 hs</li>
               <li>Domingos: Cerrado</li>
             </ul>
