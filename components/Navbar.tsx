@@ -39,14 +39,18 @@ export default function Navbar() {
       className={`fixed inset-x-0 top-0 z-50 flex justify-center backdrop-blur-md transition-all duration-300 ${
         overHero
           ? "bg-primary-light/20 shadow-[0_4px_16px_-2px_rgba(251,217,228,0.15)]"
-          : "bg-primary-light/60 shadow-[0_8px_28px_-6px_rgba(0,0,0,0.25)]"
+          : "bg-primary-light/80 shadow-[0_8px_28px_-6px_rgba(0,0,0,0.25)]"
       }`}
     >
       <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-serif font-bold text-primary">
+            <span
+              className={`text-2xl font-serif font-bold transition-colors ${
+                overHero ? "text-primary-light drop-shadow-lg" : "text-primary"
+              }`}
+            >
               Olivia's Pet Spa
             </span>
           </Link>
@@ -99,8 +103,12 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden pb-4 space-y-2">
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
+            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="pb-4 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -121,7 +129,7 @@ export default function Navbar() {
               Agendar Ahora
             </Link>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

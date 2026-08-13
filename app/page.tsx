@@ -22,7 +22,18 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 flex w-full max-w-7xl justify-center px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="max-w-3xl text-center">
-            <p className="mb-8 inline-block rounded-full border border-white/25 bg-white/10 px-5 py-2 text-sm text-neutral-100 backdrop-blur-sm">
+            <div className="mx-auto mb-24 flex w-fit rounded-full border border-white/15 bg-white/10 p-12 pb-20 backdrop-blur-sm">
+              <Image
+                src="/olivia_hero-1.webp"
+                alt="Olivia's Pet Spa"
+                width={264}
+                height={328}
+                priority
+                className="h-70 w-auto md:h-82"
+              />
+            </div>
+
+            <p className="mb-8 inline-block rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm text-neutral-100 backdrop-blur-sm">
               Sin estrés, sin traslados y con atención personalizada.
             </p>
 
