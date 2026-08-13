@@ -1,10 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const [overHero, setOverHero] = useState(pathname === "/");
+
+  useEffect(() => {
+    // Only the home page has a hero behind the navbar.
+    if (pathname !== "/") {
+      setOverHero(false);
+      return;
+    }
+    const onScroll = () =>
+      setOverHero(window.scrollY < window.innerHeight - 64);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [pathname]);
 
   const navLinks = [
     { href: "/", label: "Inicio" },
@@ -15,7 +31,13 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-primary-light border-b border-neutral-200 sticky top-0 z-50 flex justify-center">
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 flex justify-center bg-primary-light/70 backdrop-blur-md transition-shadow duration-300 ${
+        overHero
+          ? "shadow-[0_8px_32px_-2px_rgba(251,217,228,0.30)]"
+          : "shadow-[0_8px_28px_-6px_rgba(0,0,0,0.40)]"
+      }`}
+    >
       <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

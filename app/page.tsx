@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative flex min-h-[calc(100svh-4rem)]  items-center justify-center overflow-hidden text-white">
+      <section className="relative flex min-h-[calc(100svh)]  items-center justify-center overflow-hidden text-white">
         {/* Background image (placeholder) */}
         <Image
           src="/images/hero_image.png"
