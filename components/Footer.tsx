@@ -74,6 +74,15 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+        {/* Credit Line */}
+        <div className="border-t border-neutral-500 mt-8 pt-6 text-center text-xs text-neutral-400">
+          <p>
+            Developed by{" "}
+            <span className="text-neutral-200 font-semibold">
+              Mateo Codecraft
+            </span>
+          </p>
+        </div>
       </div>
     </footer>
   );
