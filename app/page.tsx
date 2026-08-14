@@ -22,30 +22,26 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 flex w-full max-w-7xl justify-center px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="max-w-3xl text-center">
-            <div className="mx-auto mb-24 flex w-fit rounded-full border border-white/15 bg-white/10 p-12 pb-20 backdrop-blur-sm">
+            <div className="mx-auto mt-6 mb-8 md:mb-24 flex w-fit rounded-full border border-white/15 bg-white/10 p-6 pb-14 md:p-12 md:pb-20 backdrop-blur-sm">
               <Image
                 src="/olivia_hero-1.webp"
                 alt="Olivia's Pet Spa"
                 width={264}
                 height={328}
                 priority
-                className="h-70 w-auto md:h-82"
+                className="h-50 w-auto md:h-82"
               />
             </div>
 
-            <p className="mb-8 inline-block rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm text-neutral-100 backdrop-blur-sm">
-              Sin estrés, sin traslados y con atención personalizada.
-            </p>
-
-            <h1 className="mb-6 font-serif text-5xl font-bold md:text-6xl">
+            <h1 className="mt-8 mb-10 md:mb-6 font-serif text-5xl font-bold md:text-6xl text-primary-light">
               Pet Spa sobre ruedas
             </h1>
 
-            <p className="mb-4 text-2xl text-neutral-100">
+            <p className="mb-4 text-3xl text-neutral-100 font-serif">
               La experiencia de un spa para tu mascota, en la puerta de tu casa.
             </p>
 
-            <p className="mb-10 text-lg text-neutral-200">
+            <p className="mb-10 text-xl text-neutral-200 font-serif">
               Baño, peluquería y cuidado profesional a domicilio en Maldonado.
             </p>
 
