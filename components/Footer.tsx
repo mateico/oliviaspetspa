@@ -79,7 +79,7 @@ export default function Footer() {
           <p>
             Developed by{" "}
             <span className="text-neutral-200 font-semibold">
-              Mateo Codecraft
+              Mateo CodeCraft
             </span>
           </p>
         </div>
