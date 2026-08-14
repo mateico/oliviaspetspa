@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const DESTINATARIO = "mateo.rial@gmail.com";
+const DESTINATARIO = "mar2002viera@gmail.com";
 
 // Sin dominio propio verificado en Resend hay que usar onboarding@resend.dev.
 // Cuando verifiques el dominio: "Olivia's Pet Spa <reservas@tudominio.com>"
