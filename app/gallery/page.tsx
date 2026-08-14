@@ -1,36 +1,23 @@
+import Image from "next/image";
 import Link from "next/link";
 
-const DESTACADOS = [
-  {
-    emoji: "🐕",
-    nombre: "Max",
-    raza: "Golden Retriever",
-    descripcion:
-      "Deslanado completo y baño hidratante. Tres horas de trabajo para dejarlo como nuevo.",
-  },
-  {
-    emoji: "🐩",
-    nombre: "Luna",
-    raza: "Caniche",
-    descripcion:
-      "Corte de raza clásico, corte de uñas y limpieza de oídos a domicilio.",
-  },
-  {
-    emoji: "🐶",
-    nombre: "Rocky",
-    raza: "Schnauzer",
-    descripcion:
-      "Corte de barba y cejas con tijera, más tratamiento anti-caída.",
-  },
+// Fotos individuales (retrato). Para agregar/quitar, edita esta lista.
+const SINGLE_IMAGES = [
+  { src: "/single1.webp", alt: "Mascota recién aseada en Olivia's Pet Spa" },
+  { src: "/single2.webp", alt: "Mascota recién aseada en Olivia's Pet Spa" },
+  { src: "/single3.webp", alt: "Mascota recién aseada en Olivia's Pet Spa" },
 ];
 
-const ANTES_DESPUES = [
-  { emoji: "🐕", nombre: "Simba", raza: "Labrador", servicio: "Aseo completo" },
-  { emoji: "🐩", nombre: "Coco", raza: "Bichón", servicio: "Corte de pelo" },
-  { emoji: "🐕‍🦺", nombre: "Nala", raza: "Border Collie", servicio: "Deslanado" },
-  { emoji: "🦮", nombre: "Toby", raza: "Beagle", servicio: "Baño y uñas" },
-  { emoji: "🐶", nombre: "Kira", raza: "Pomerania", servicio: "Corte de raza" },
-  { emoji: "🐕", nombre: "Bruno", raza: "Husky", servicio: "Deslanado" },
+// Fotos de antes y después (horizontal). Para agregar/quitar, edita esta lista.
+const BEFORE_AFTER_IMAGES = [
+  { src: "/before-after.webp", alt: "Antes y después de un servicio de aseo canino" },
+  { src: "/before-after(1).webp", alt: "Antes y después de un servicio de aseo canino" },
+  { src: "/before-after(2).webp", alt: "Antes y después de un servicio de aseo canino" },
+  { src: "/before-after(3).webp", alt: "Antes y después de un servicio de aseo canino" },
+  { src: "/before-after(4).webp", alt: "Antes y después de un servicio de aseo canino" },
+  { src: "/before-after(5).webp", alt: "Antes y después de un servicio de aseo canino" },
+  { src: "/before-after(6).webp", alt: "Antes y después de un servicio de aseo canino" },
+  { src: "/before-after(7).webp", alt: "Antes y después de un servicio de aseo canino" },
 ];
 
 export default function Gallery() {
@@ -51,7 +38,7 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Trabajos destacados */}
+      {/* Fotos individuales */}
       <section className="py-20 md:py-28 bg-background flex justify-center">
         <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-serif font-bold text-center mb-4">
@@ -61,28 +48,20 @@ export default function Gallery() {
             Algunos de nuestros favoritos de los últimos meses.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {DESTACADOS.map((trabajo, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {SINGLE_IMAGES.map((foto, i) => (
               <div
-                key={i}
-                className="bg-white border border-neutral-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                key={foto.src}
+                className="relative aspect-[3/4] w-full rounded-lg overflow-hidden border border-neutral-200 bg-neutral-100"
               >
-                {/* Reemplaza este bloque por una foto real */}
-                <div className="relative h-64 bg-primary-light flex items-center justify-center">
-                  <span className="text-7xl">{trabajo.emoji}</span>
-                  <span className="absolute top-3 left-3 bg-accent text-neutral-900 text-xs font-semibold px-3 py-1 rounded-full">
-                    Destacado
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-1">
-                    {trabajo.nombre}
-                  </h3>
-                  <p className="text-sm text-neutral-500 mb-3">
-                    {trabajo.raza}
-                  </p>
-                  <p className="text-neutral-600">{trabajo.descripcion}</p>
-                </div>
+                <Image
+                  src={foto.src}
+                  alt={foto.alt}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                  loading={i === 0 ? "eager" : "lazy"}
+                />
               </div>
             ))}
           </div>
@@ -99,36 +78,20 @@ export default function Gallery() {
             La transformación habla por sí sola.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {ANTES_DESPUES.map((trabajo, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {BEFORE_AFTER_IMAGES.map((foto) => (
               <div
-                key={i}
-                className="border border-neutral-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                key={foto.src}
+                className="relative aspect-[3/2] w-full rounded-lg overflow-hidden border border-neutral-200 bg-neutral-100"
               >
-                <div className="grid grid-cols-2">
-                  {/* Antes */}
-                  <div className="relative h-44 bg-neutral-200 flex items-center justify-center">
-                    <span className="text-5xl opacity-70">{trabajo.emoji}</span>
-                    <span className="absolute top-2 left-2 bg-neutral-900/70 text-white text-xs font-semibold px-2 py-1 rounded">
-                      Antes
-                    </span>
-                  </div>
-                  {/* Después */}
-                  <div className="relative h-44 bg-primary-light flex items-center justify-center border-l border-neutral-200">
-                    <span className="text-5xl">{trabajo.emoji}</span>
-                    <span className="absolute top-2 left-2 bg-primary text-white text-xs font-semibold px-2 py-1 rounded">
-                      Después
-                    </span>
-                  </div>
-                </div>
-                <div className="p-4 bg-white">
-                  <h3 className="font-semibold text-primary">
-                    {trabajo.nombre}
-                  </h3>
-                  <p className="text-sm text-neutral-600">
-                    {trabajo.raza} · {trabajo.servicio}
-                  </p>
-                </div>
+                <Image
+                  src={foto.src}
+                  alt={foto.alt}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
