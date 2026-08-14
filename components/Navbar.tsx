@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const [overHero, setOverHero] = useState(pathname === "/");
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     // Only the home page has a hero behind the navbar.
@@ -21,6 +22,19 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isOpen]);
 
   const linkClass = overHero
     ? "text-white hover:text-accent"
@@ -36,6 +50,7 @@ export default function Navbar() {
 
   return (
     <nav
+      ref={navRef}
       className={`fixed inset-x-0 top-0 z-50 flex justify-center backdrop-blur-md transition-all duration-300 ${
         overHero
           ? "bg-primary-light/20 shadow-[0_4px_16px_-2px_rgba(251,217,228,0.15)]"
