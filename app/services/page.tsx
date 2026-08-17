@@ -164,7 +164,7 @@ const PROMOCIONES: Promotion[] = [
     details: [
       "2 perros el mismo día → 10% OFF",
       "3 o más perros el mismo día → 20% OFF",
-      "Válido para mascotas del mismo barrio",
+      "Válido para mascotas del mismo barrio y horario",
       "Coordina con una semana de anticipación",
     ],
   },
@@ -204,93 +204,91 @@ export default function Services() {
             Nuestros servicios
           </h2>
           <p className="text-neutral-600 text-lg text-center mb-12">
-            Los precios dependen del peso de tu mascota.
+            Los precios dependen del tamaño y tipo de manto de tu mascota.
           </p>
 
           <div className="space-y-8">
             {SERVICIOS.map((servicio) => (
-                <div
-                  key={servicio.id}
-                  className="group relative bg-white border border-neutral-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  <div className="p-6 md:p-8">
-                    {/* Encabezado */}
-                    <div className="mb-6">
-                      <h3 className="text-2xl font-serif font-bold text-primary mb-1">
-                        {truncate(servicio.name, MAX_LENGTH.serviceName)}
-                      </h3>
-                      <p className="text-neutral-600 text-sm">
-                        {truncate(
-                          servicio.description,
-                          MAX_LENGTH.serviceDescription,
-                        )}
+              <div
+                key={servicio.id}
+                className="group relative bg-white border border-neutral-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="p-6 md:p-8">
+                  {/* Encabezado */}
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-serif font-bold text-primary mb-1">
+                      {truncate(servicio.name, MAX_LENGTH.serviceName)}
+                    </h3>
+                    <p className="text-neutral-600 text-sm">
+                      {truncate(
+                        servicio.description,
+                        MAX_LENGTH.serviceDescription,
+                      )}
+                    </p>
+                  </div>
+
+                  {/* Grid con Incluye y Precios por peso */}
+                  <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+                    {/* Incluye */}
+                    <div className="md:col-span-2">
+                      <p className="font-semibold text-neutral-900 mb-3 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        Incluye
+                      </p>
+                      <ul className="space-y-2.5">
+                        {servicio.includes.map((item, idx) => (
+                          <li
+                            key={idx}
+                            className="flex gap-2.5 text-neutral-600 text-sm"
+                          >
+                            <span className="flex items-center justify-center w-4 h-4 rounded-full bg-primary/10 text-primary text-[10px] font-bold flex-shrink-0 mt-0.5">
+                              ✓
+                            </span>
+                            <span>
+                              {truncate(item, MAX_LENGTH.includeItem)}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Precios por peso */}
+                    <div className="md:col-span-3">
+                      <p className="font-semibold text-neutral-900 mb-3 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent-dark" />
+                        Según el peso
+                      </p>
+                      <div className="grid grid-cols-2 gap-3">
+                        {servicio.pricing.map((tier, idx) => (
+                          <div
+                            key={idx}
+                            className="rounded-xl border border-neutral-200 bg-background/60 px-4 py-3 hover:border-primary/40 hover:bg-primary/5 transition-colors"
+                          >
+                            <p className="text-xs text-neutral-500 font-medium mb-0.5">
+                              {tier.minKg}
+                              {tier.maxKg ? ` a ${tier.maxKg}` : "+"} kg
+                            </p>
+                            <p className="text-lg font-bold text-primary">
+                              {formatPrice(tier.price)}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Nota si existe */}
+                  {servicio.note && (
+                    <div className="mt-6 flex gap-3 bg-accent/10 border border-accent/20 rounded-lg p-4">
+                      <span className="text-accent-dark flex-shrink-0">ⓘ</span>
+                      <p className="text-sm text-neutral-700">
+                        <span className="font-semibold">Importante: </span>
+                        {truncate(servicio.note, MAX_LENGTH.serviceNote)}
                       </p>
                     </div>
-
-                    {/* Grid con Incluye y Precios por peso */}
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-                      {/* Incluye */}
-                      <div className="md:col-span-2">
-                        <p className="font-semibold text-neutral-900 mb-3 flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                          Incluye
-                        </p>
-                        <ul className="space-y-2.5">
-                          {servicio.includes.map((item, idx) => (
-                            <li
-                              key={idx}
-                              className="flex gap-2.5 text-neutral-600 text-sm"
-                            >
-                              <span className="flex items-center justify-center w-4 h-4 rounded-full bg-primary/10 text-primary text-[10px] font-bold flex-shrink-0 mt-0.5">
-                                ✓
-                              </span>
-                              <span>
-                                {truncate(item, MAX_LENGTH.includeItem)}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Precios por peso */}
-                      <div className="md:col-span-3">
-                        <p className="font-semibold text-neutral-900 mb-3 flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent-dark" />
-                          Según el peso
-                        </p>
-                        <div className="grid grid-cols-2 gap-3">
-                          {servicio.pricing.map((tier, idx) => (
-                            <div
-                              key={idx}
-                              className="rounded-xl border border-neutral-200 bg-background/60 px-4 py-3 hover:border-primary/40 hover:bg-primary/5 transition-colors"
-                            >
-                              <p className="text-xs text-neutral-500 font-medium mb-0.5">
-                                {tier.minKg}
-                                {tier.maxKg ? ` a ${tier.maxKg}` : "+"} kg
-                              </p>
-                              <p className="text-lg font-bold text-primary">
-                                {formatPrice(tier.price)}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Nota si existe */}
-                    {servicio.note && (
-                      <div className="mt-6 flex gap-3 bg-accent/10 border border-accent/20 rounded-lg p-4">
-                        <span className="text-accent-dark flex-shrink-0">
-                          ⓘ
-                        </span>
-                        <p className="text-sm text-neutral-700">
-                          <span className="font-semibold">Importante: </span>
-                          {truncate(servicio.note, MAX_LENGTH.serviceNote)}
-                        </p>
-                      </div>
-                    )}
-                  </div>
+                  )}
                 </div>
+              </div>
             ))}
           </div>
         </div>
