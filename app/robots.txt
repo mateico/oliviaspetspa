@@ -2,3 +2,5 @@ User-Agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
+
+Sitemap: https://www.oliviaspetspa.com/sitemap.xml
