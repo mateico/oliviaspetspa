@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ImportanteLink from "./ImportanteLink";
 
 // Types
 interface PricingByWeight {
@@ -22,22 +23,12 @@ interface Additional {
   price: string;
 }
 
-interface Promotion {
-  id: string;
-  title: string;
-  description: string;
-  details: string[];
-}
-
 // Constantes de validación
 const MAX_LENGTH = {
   serviceName: 40,
   serviceDescription: 80,
   includeItem: 50,
   additionalName: 45,
-  promotionTitle: 50,
-  promotionDescription: 100,
-  promotionDetail: 70,
   serviceNote: 120,
 } as const;
 
@@ -155,21 +146,6 @@ const ADICIONALES: Additional[] = [
   { id: "glandulas", name: "Vaciado de glándulas anales", price: "+$400" },
 ];
 
-// Promociones
-const PROMOCIONES: Promotion[] = [
-  {
-    id: "spa-barrio",
-    title: "Día de Spa por Barrio",
-    description: "Coordina con tus vecinos y ahorra",
-    details: [
-      "2 perros el mismo día → 10% OFF",
-      "3 o más perros el mismo día → 20% OFF",
-      "Válido para mascotas del mismo barrio y horario",
-      "Coordina con una semana de anticipación",
-    ],
-  },
-];
-
 // Helpers
 function truncate(text: string, maxLength: number): string {
   return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
@@ -207,24 +183,33 @@ export default function Services() {
             Los precios dependen del tamaño y tipo de manto de tu mascota.
           </p>
 
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {SERVICIOS.map((servicio) => (
               <div
                 key={servicio.id}
                 className="group relative bg-white border border-neutral-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="p-6 md:p-8">
+                <div className="h-1.5 w-full bg-gradient-to-r from-primary to-accent" />
+                <div className="p-5 sm:p-6 md:p-8">
                   {/* Encabezado */}
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-serif font-bold text-primary mb-1">
-                      {truncate(servicio.name, MAX_LENGTH.serviceName)}
-                    </h3>
-                    <p className="text-neutral-600 text-sm">
-                      {truncate(
-                        servicio.description,
-                        MAX_LENGTH.serviceDescription,
+                  <div className="mb-6 flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-serif font-bold text-primary mb-1">
+                        {truncate(servicio.name, MAX_LENGTH.serviceName)}
+                      </h3>
+                      <p className="text-neutral-600 text-sm">
+                        {truncate(
+                          servicio.description,
+                          MAX_LENGTH.serviceDescription,
+                        )}
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center whitespace-nowrap rounded-full bg-primary/10 px-3 py-1 text-sm font-bold text-primary">
+                      Desde{" "}
+                      {formatPrice(
+                        Math.min(...servicio.pricing.map((tier) => tier.price)),
                       )}
-                    </p>
+                    </span>
                   </div>
 
                   {/* Grid con Incluye y Precios por peso */}
@@ -258,17 +243,17 @@ export default function Services() {
                         <span className="w-1.5 h-1.5 rounded-full bg-accent-dark" />
                         Según el peso
                       </p>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
                         {servicio.pricing.map((tier, idx) => (
                           <div
                             key={idx}
-                            className="rounded-xl border border-neutral-200 bg-background/60 px-4 py-3 hover:border-primary/40 hover:bg-primary/5 transition-colors"
+                            className="rounded-xl border border-neutral-200 bg-background/60 px-3 py-2.5 sm:px-4 sm:py-3 hover:border-primary/40 hover:bg-primary/5 transition-colors"
                           >
                             <p className="text-xs text-neutral-500 font-medium mb-0.5">
                               {tier.minKg}
                               {tier.maxKg ? ` a ${tier.maxKg}` : "+"} kg
                             </p>
-                            <p className="text-lg font-bold text-primary">
+                            <p className="text-base sm:text-lg font-bold text-primary">
                               {formatPrice(tier.price)}
                             </p>
                           </div>
@@ -279,8 +264,19 @@ export default function Services() {
 
                   {/* Nota si existe */}
                   {servicio.note && (
-                    <div className="mt-6 flex gap-3 bg-accent/10 border border-accent/20 rounded-lg p-4">
-                      <span className="text-accent-dark flex-shrink-0">ⓘ</span>
+                    <div className="mt-6 flex gap-3 bg-accent/10 border border-accent/20 rounded-xl p-4">
+                      <span className="flex items-center justify-center w-6 h-6 rounded-full bg-accent-dark text-white flex-shrink-0">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="w-4 h-4"
+                          aria-hidden="true"
+                        >
+                          <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                          <circle cx="12" cy="7.25" r="1.5" />
+                          <rect x="11" y="10.5" width="2" height="7" rx="1" />
+                        </svg>
+                      </span>
                       <p className="text-sm text-neutral-700">
                         <span className="font-semibold">Importante: </span>
                         {truncate(servicio.note, MAX_LENGTH.serviceNote)}
@@ -304,16 +300,19 @@ export default function Services() {
             Agrégalos a cualquier servicio principal.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             {ADICIONALES.map((adicional) => (
               <div
                 key={adicional.id}
-                className="flex items-center justify-between bg-background border border-neutral-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                className="flex items-center justify-between gap-4 bg-white border border-neutral-200 rounded-xl p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-300"
               >
-                <span className="font-semibold text-neutral-900">
+                <span className="font-semibold text-neutral-900 flex items-center gap-2">
                   {truncate(adicional.name, MAX_LENGTH.additionalName)}
+                  {adicional.id === "antipulgas" && (
+                    <ImportanteLink targetId="importante-antipulgas" />
+                  )}
                 </span>
-                <span className="text-primary font-bold whitespace-nowrap ml-4">
+                <span className="inline-flex items-center whitespace-nowrap rounded-full bg-primary/10 px-3 py-1 text-sm font-bold text-primary">
                   {adicional.price}
                 </span>
               </div>
@@ -328,51 +327,59 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Promociones */}
-      <section className="py-20 md:py-28 bg-background flex justify-center">
-        <div className="max-w-4xl w-full px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-serif font-bold text-center mb-12">
-            Promociones
-          </h2>
-
-          {PROMOCIONES.map((promo) => (
-            <div
-              key={promo.id}
-              className="bg-white border-2 border-accent rounded-lg p-8"
-            >
-              <h3 className="text-2xl font-serif font-bold text-primary mb-2">
-                {truncate(promo.title, MAX_LENGTH.promotionTitle)}
-              </h3>
-              <p className="text-neutral-600 mb-6">
-                {truncate(promo.description, MAX_LENGTH.promotionDescription)}
-              </p>
-
-              <ul className="space-y-3">
-                {promo.details.map((detail, idx) => (
-                  <li key={idx} className="flex gap-3 text-neutral-700">
-                    <span className="text-accent font-bold flex-shrink-0">
-                      🐾
-                    </span>
-                    <span>{truncate(detail, MAX_LENGTH.promotionDetail)}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Importante */}
       <section className="py-20 bg-white flex justify-center">
-        <div className="max-w-4xl w-full px-4 sm:px-6 lg:px-8">
-          <div className="bg-primary/5 border border-primary/20 rounded-lg p-8">
-            <h3 className="text-xl font-serif font-bold text-primary mb-3">
-              Importante
-            </h3>
-            <p className="text-neutral-700">
-              Las reservas se coordinan con al menos una semana de anticipación
-              para asegurar disponibilidad.
-            </p>
+        <div className="max-w-4xl w-full px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          <div className="flex gap-4 bg-primary/5 border border-primary/20 rounded-2xl p-6 sm:p-8">
+            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white flex-shrink-0">
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-5 h-5"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="12" cy="7.25" r="1.5" />
+                <rect x="11" y="10.5" width="2" height="7" rx="1" />
+              </svg>
+            </span>
+            <div>
+              <h3 className="text-lg sm:text-xl font-serif font-bold text-primary mb-2">
+                Importante
+              </h3>
+              <p className="text-neutral-700 text-sm sm:text-base">
+                Las reservas se coordinan con al menos una semana de
+                anticipación para asegurar disponibilidad.
+              </p>
+            </div>
+          </div>
+
+          <div
+            id="importante-antipulgas"
+            className="flex gap-4 bg-primary/5 border border-primary/20 rounded-2xl p-6 sm:p-8 scroll-mt-24"
+          >
+            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white flex-shrink-0">
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-5 h-5"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="12" cy="7.25" r="1.5" />
+                <rect x="11" y="10.5" width="2" height="7" rx="1" />
+              </svg>
+            </span>
+            <div>
+              <h3 className="text-lg sm:text-xl font-serif font-bold text-primary mb-2">
+                Importante
+              </h3>
+              <p className="text-neutral-700 text-sm sm:text-base">
+                Si la mascota llega con pulgas o garrapatas, aplicamos un
+                tratamiento específico con costo adicional. Recomendamos
+                desparasitar antes del turno.
+              </p>
+            </div>
           </div>
         </div>
       </section>

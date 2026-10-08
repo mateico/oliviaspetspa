@@ -85,20 +85,11 @@ Agrégalos a cualquier servicio principal. Los precios pueden variar según el e
 | Perros muy reactivos | +$300 |
 | Vaciado de glándulas anales | +$400 |
 
-## Promociones
-
-### Día de Spa por Barrio
-
-Coordina con tus vecinos y ahorra.
-
-- 2 perros el mismo día → 10% OFF
-- 3 o más perros el mismo día → 20% OFF
-- Válido para mascotas del mismo barrio y horario
-- Coordina con una semana de anticipación
-
 ## Importante
 
 Las reservas se coordinan con al menos una semana de anticipación para asegurar disponibilidad.
+
+Si la mascota llega con pulgas o garrapatas, aplicamos un tratamiento específico con costo adicional. Recomendamos desparasitar antes del turno.
 
 [Agendar ahora](/contact)
 `;
