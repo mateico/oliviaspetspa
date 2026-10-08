@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "book-appointment",
+      "type": "skill-md",
+      "description": "Submit a grooming appointment request for a dog at Olivia's Pet Spa. Use when a user wants to schedule, book, or request a grooming appointment.",
+      "url": "/.well-known/agent-skills/book-appointment/SKILL.md",
+      "digest": "sha256:3fba853969aa54625f62bfa2a799b4f7361052b08f42b752ff4f68404678be35"
+    }
+  ]
+}

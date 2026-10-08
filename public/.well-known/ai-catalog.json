@@ -1,0 +1,30 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Olivia's Pet Spa",
+    "identifier": "https://www.oliviaspetspa.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:oliviaspetspa.com:server:booking-mcp",
+      "displayName": "Olivia's Pet Spa MCP Server",
+      "type": "application/mcp-server-card+json",
+      "url": "https://www.oliviaspetspa.com/.well-known/mcp/server-card.json",
+      "representativeQueries": [
+        "check dog grooming prices at Olivia's Pet Spa",
+        "book a grooming appointment for my dog in Maldonado",
+        "what grooming services does Olivia's Pet Spa offer"
+      ]
+    },
+    {
+      "identifier": "urn:air:oliviaspetspa.com:skill:book-appointment",
+      "displayName": "Book an Appointment",
+      "type": "text/markdown",
+      "url": "https://www.oliviaspetspa.com/.well-known/agent-skills/book-appointment/SKILL.md",
+      "representativeQueries": [
+        "schedule a dog bath and haircut",
+        "request a mobile pet grooming visit"
+      ]
+    }
+  ]
+}

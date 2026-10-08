@@ -1,0 +1,17 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.oliviaspetspa.com/.well-known/api-catalog",
+      "item": [
+        {
+          "href": "https://www.oliviaspetspa.com/api/reserva"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.oliviaspetspa.com/.well-known/agent-skills/book-appointment/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

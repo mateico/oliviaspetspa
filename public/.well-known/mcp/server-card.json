@@ -1,0 +1,11 @@
+{
+  "serverInfo": {
+    "name": "olivias-pet-spa-mcp",
+    "version": "1.0.0"
+  },
+  "title": "Olivia's Pet Spa MCP Server",
+  "description": "Look up grooming services/pricing and submit appointment requests for Olivia's Pet Spa, a mobile dog grooming service in Maldonado, Uruguay.",
+  "endpoint": "https://www.oliviaspetspa.com/mcp",
+  "transport": "streamable-http",
+  "capabilities": ["tools"]
+}
