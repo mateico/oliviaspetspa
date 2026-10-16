@@ -54,9 +54,9 @@ export default function Home() {
               </Link>
               <Link
                 href="/services"
-                className="font-semibold text-white transition-colors hover:text-accent"
+                className="inline-block rounded-lg border-2 border-white px-8 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-primary-dark"
               >
-                Nuestros servicios →
+                Servicios y precios →
               </Link>
             </div>
           </div>
